@@ -1,0 +1,52 @@
+
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:0-3.11-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/python:1": {
+			"installTools": true,
+			"installJupyterlab": true,
+			"version": "os-provided"
+		},
+		// Unfortunately the DVC feature is broken in the current version of the devcontainer
+		// "ghcr.io/iterative/features/dvc:1": {},
+		"ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers-contrib/features/pdm:2": {
+			"version": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"GitHub.copilot-nightly",
+				"GitHub.copilot-chat",
+				"ms-toolsai.jupyter",
+				"hamelhusain.nbdev",
+				"quarto.quarto",
+				"iterative.dvc"
+			]
+		}
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// DVC Feature is busted, so install via pipx and then install nbdev.
+	 "postCreateCommand": "pipx install dvc && pipx install nbdev",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}

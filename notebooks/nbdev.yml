@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "devcontainer-playground"
+  site-url: "https://nd-crane.github.io/devcontainer-playground"
+  description: "Devcontainer Framework Playground"
+  repo-branch: main
+  repo-url: "https://github.com/nd-crane/devcontainer-playground"
